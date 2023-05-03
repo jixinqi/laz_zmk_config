@@ -1,0 +1,11 @@
+# STM32F103RCT6 Laz Core Board configuration
+
+# Copyright (c) 2020 WuhanStudio
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_STM32F103C8T6_LAZ_CORE
+
+config BOARD
+	default "STM32F103C8T6_laz_core_board"
+
+endif # BOARD_STM32F103C8T6_LAZ_CORE
