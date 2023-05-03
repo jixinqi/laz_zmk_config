@@ -6,6 +6,7 @@
 
 /dts-v1/;
 #include <st/f1/stm32f103X8.dtsi>
+#include <st/f1/stm32f103c(8-b)tx-pinctrl.dtsi>
 
 / {
 	model = "STM32F103C8T6 laz core board";
@@ -28,10 +29,6 @@
 
 	gpio_keys {
 		compatible = "gpio_keys";
-		wk_up = wk_up {
-			label = "User wk_up";
-			gpios = <&gpioa 0 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>
-		};
 	}
 
 	aliases {
