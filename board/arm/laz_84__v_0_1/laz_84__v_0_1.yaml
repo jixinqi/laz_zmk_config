@@ -1,5 +1,5 @@
-identifier: STM32F103C8T6_laz_core_board
-name: STM32F103RCT6 Laz Core Board
+identifier: laz_84__v_0_1
+name: LAZ84V0_1
 type: mcu
 arch: arm
 toolchain:
@@ -7,12 +7,11 @@ toolchain:
   - gnuarmemb
   - xtools
 ram: 20
-flash: 64
 supported:
   - gpio
   - i2c
   - spi
-  - pwm
   - watchdog
-  - adc
   - counter
+  - usb_device
+  - kscan

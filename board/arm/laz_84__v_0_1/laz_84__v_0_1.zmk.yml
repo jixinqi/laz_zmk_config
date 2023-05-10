@@ -1,0 +1,11 @@
+file_format: "1"
+id: laz_84__v_0_1
+name: Laz 84
+type: board
+arch: arm
+features:
+  - keys
+  - underglow
+outputs:
+  - usb
+url: https://olkb.com/collections/planck

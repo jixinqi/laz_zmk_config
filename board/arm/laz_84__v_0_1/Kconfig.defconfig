@@ -1,0 +1,17 @@
+# STM32F103RCT6 Laz Core Board configuration
+
+# Copyright (c) 2020 WuhanStudio
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_LAZ_84_KEYBOARD
+
+config ZMK_KEYBOARD_NAME
+	default "Laz 84"
+
+config ZMK_USB
+    default y
+
+config ZMK_KSCAN_MATRIX_POLLING
+    default y
+
+endif # BOARD_LAZ_84_KEYBOARD
