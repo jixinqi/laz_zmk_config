@@ -56,6 +56,11 @@
             >;
         };
 
+	slip: slip {
+		compatible = "zmk,uart-slip";
+		uart = <&usart1>;
+	};
+
     /*
 	leds {
 		compatible = "gpio-leds";
@@ -79,12 +84,18 @@
 		die-temp0 = &die_temp;
 	};
     */
+
+	aliases {
+		uart-comm = &slip;
+	};
 };
 
+/*
 &clk_lse {
 	clock-frequency = <32768>;
 	status = "okay";
 };
+*/
 
 &clk_hse {
 	clock-frequency = <DT_FREQ_M(8)>;
@@ -106,14 +117,12 @@
 	/* usbpre not set: USB clock = 72 / 1.5: 48MHz */
 };
 
-/*
 &usart1 {
-	pinctrl-0 = <&usart1_tx_pa9 &usart1_rx_pa10>;
-	pinctrl-names = "default";
 	current-speed = <115200>;
+	pinctrl-0 = <&usart1_tx_pa9>;
+	pinctrl-names = "default";
 	status = "okay";
 };
-*/
 
 /*
 &usart2 {
@@ -181,13 +190,9 @@
 };
 */
 
-/*
-zephyr_udc0: &usb {
-	pinctrl-0 = <&usb_dm_pa11 &usb_dp_pa12>;
-	pinctrl-names = "default";
-	status = "okay";
+&pinctrl {
+	swj-cfg = "jtag-disable";
 };
-*/
 
 &usb {
     pinctrl-0 = <&usb_dm_pa11 &usb_dp_pa12>;

@@ -6,7 +6,7 @@
 if BOARD_LAZ_84_KEYBOARD
 
 config ZMK_KEYBOARD_NAME
-	default "Laz 84"
+	default "Laz84"
 
 config ZMK_USB
     default y

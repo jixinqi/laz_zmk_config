@@ -6,16 +6,16 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            // -----------------------------
-            // |  Q   |  W   |  E   |  R   |
-            // |  A   |  S   |  D   |  F   |
-            // |  Z   |  X   |  C   |  V   |
-            // |  1   |  2   |  3   |  4   |
+            //  ---------------------------------
+            //  |   Q   |   W   |   E   |   R   |
+            //  |   A   |   S   |   D   |   F   |
+            //  |   Z   |   X   |   C   |   V   |
+            //  |   1   |   2   |   3   |   4   |
             bindings = <
-                &kp Q    &kp Q    &kp Q    &kp Q
-                &kp Q    &kp Q    &kp Q    &kp Q
-                &kp Q    &kp Q    &kp Q    &kp Q
-                &kp Q    &kp Q    &kp Q    &kp Q
+                &kp Q   &kp W   &kp E   &kp R
+                &kp A   &kp S   &kp D   &kp F
+                &kp Z   &kp X   &kp C   &kp V
+                &kp N1  &kp N2  &kp N3  &kp N4
             >;
         };
     };
