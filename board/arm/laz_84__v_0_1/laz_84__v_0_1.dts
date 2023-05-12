@@ -15,10 +15,8 @@
 	compatible = "st,stm32f103c8";
 
 	chosen {
-        /*
 		zephyr,console = &usart1;
 		zephyr,shell-uart = &usart1;
-        */
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 		zmk,kscan = &kscan0;
@@ -28,18 +26,18 @@
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
-        diode-direction = "col2row";
+        diode-direction = "row2col";
         row-gpios
-            = <&gpioa 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpioa 1  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpioa 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpioa 3  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            = <&gpioa 0   GPIO_ACTIVE_HIGH>
+            , <&gpioa 1   GPIO_ACTIVE_HIGH>
+            , <&gpioa 2   GPIO_ACTIVE_HIGH>
+            , <&gpioa 3   GPIO_ACTIVE_HIGH>
             ;
         col-gpios
-            = <&gpioa 4  GPIO_ACTIVE_HIGH>
-            , <&gpioa 5  GPIO_ACTIVE_HIGH>
-            , <&gpioa 6  GPIO_ACTIVE_HIGH>
-            , <&gpioa 7  GPIO_ACTIVE_HIGH>
+            = <&gpioa 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpioa 5  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpioa 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpioa 7  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
     };
 
@@ -55,42 +53,12 @@
                 RC(3,0) RC(3,1) RC(3,2) RC(3,3)
             >;
         };
-
-	slip: slip {
-		compatible = "zmk,uart-slip";
-		uart = <&usart1>;
-	};
-
-    /*
-	leds {
-		compatible = "gpio-leds";
-		green_led_1: led_1 {
-			gpios = <&gpiob 9 GPIO_ACTIVE_LOW>;
-			label = "User LD1";
-		};
-	};
-    */
-
-    /*
-	gpio_keys {
-		compatible = "gpio_keys";
-	};
-    */
-
-    /*
-	aliases {
-		led0 = &green_led_1;
-		watchdog0 = &iwdg;
-		die-temp0 = &die_temp;
-	};
-    */
-
-	aliases {
-		uart-comm = &slip;
-	};
 };
 
 /*
+// don't enable this in zmk project.
+// --jixinqi
+
 &clk_lse {
 	clock-frequency = <32768>;
 	status = "okay";
@@ -119,7 +87,7 @@
 
 &usart1 {
 	current-speed = <115200>;
-	pinctrl-0 = <&usart1_tx_pa9>;
+	pinctrl-0 = <&usart1_tx_pa9 &usart1_rx_pa10>;
 	pinctrl-names = "default";
 	status = "okay";
 };
@@ -151,8 +119,12 @@
 
 /*
 &spi1 {
-	pinctrl-0 = <&spi1_nss_master_pa4 &spi1_sck_master_pa5
-		     &spi1_miso_master_pa6 &spi1_mosi_master_pa7>;
+	pinctrl-0 = <
+		&spi1_nss_master_pa4
+		&spi1_sck_master_pa5
+		&spi1_miso_master_pa6
+		&spi1_mosi_master_pa7
+	>;
 	pinctrl-names = "default";
 	status = "okay";
 };
