@@ -11,12 +11,10 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
-	model = "STM32F103C8T6 laz core board";
+	model = "Laz84 Keyboard";
 	compatible = "st,stm32f103c8";
 
 	chosen {
-		zephyr,console = &usart1;
-		zephyr,shell-uart = &usart1;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 		zmk,kscan = &kscan0;
@@ -85,12 +83,14 @@
 	/* usbpre not set: USB clock = 72 / 1.5: 48MHz */
 };
 
+/*
 &usart1 {
 	current-speed = <115200>;
 	pinctrl-0 = <&usart1_tx_pa9 &usart1_rx_pa10>;
 	pinctrl-names = "default";
 	status = "okay";
 };
+*/
 
 /*
 &usart2 {
