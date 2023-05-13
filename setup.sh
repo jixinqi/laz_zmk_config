@@ -6,3 +6,5 @@ ZMK_PROJECT_PATH="$HOME/zmk"
 ln -s -f \
     ${LAZ_PROJECT_PATH}/board/arm/laz_84__v_0_1 \
     ${ZMK_PROJECT_PATH}/app/boards/arm/
+
+echo $'CONFIG_DEBUG_OPTIMIZATIONS=y\n\n' > ${ZMK_PROJECT_PATH}/app/prj.conf

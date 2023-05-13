@@ -1,0 +1,21 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/app/build/zephyr/zmk.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            //"runToEntryPoint": "arch_switch_to_main_thread",
+            "servertype": "openocd",
+            "configFiles": [
+                "${workspaceFolder}/app/boards/arm/laz_84__v_0_1/support/openocd.cfg"
+            ],
+            "gdbPath": "/home/jixinqi/zephyr-sdk-0.15.0/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb"
+        }
+    ]
+}
